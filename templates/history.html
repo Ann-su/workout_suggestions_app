@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styl Życia - Ćwiczenia Fizyczne</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <header>
+        <h1><a href="home" class="title-link">Styl Życia - Ćwiczenia Fizyczne</a></h1>
+    </header>
+
+<nav>
+    <ul>
+        <li><a href="dashboard">Formularz Ćwiczeń</a></li>
+        <li><a href="history">Historia Ćwiczeń</a></li>
+        <li><a href="settings">Ustawienia</a></li>
+        <li><a href="login">Wyloguj się</a></li>
+    </ul>
+</nav>
+<div class="content">
+    <section id="historia">
+    <h2>Historia Ćwiczeń</h2>
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Nazwa Ćwiczenia</th>
+                <th>Waga (kg)</th>
+                <th>Powtórzenia</th>
+                <th>Serie</th>
+                <th>Dystans (km)</th>
+                <th>Czas (min)</th>
+                <th>Kalorie (kcal)</th>
+            </tr>
+        </thead>
+        <tbody id="exerciseHistory">
+            {% for workout in workouts %}
+                <tr>
+                    <td><i class="fa fa-clock-o"></i></td>
+                    <td>{{ workout.exercise_name }}</td>
+                    <td>{{ workout.weight_kilograms or 0 }}</td>
+                    <td>{{ workout.repetitions or 0 }}</td>
+                    <td>{{ workout.sets or 0 }}</td>
+                    <td>{{ workout.distance_kilometers or 0 }}</td>
+                    <td>{{ workout.duration_minutes or 0 }}</td>
+                    <td>{{ workout.kilocalories_burned or 0 }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </section>
+    </div>
+
+
+<!-- <footer>
+    <p>&copy; 2024 Styl Życia - Ćwiczenia Fizyczne</p>
+    <p><a href="#">Kontakt</a></p>
+</footer> -->
+
+</body>
+</html>
