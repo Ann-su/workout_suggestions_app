@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rejestracja - AI Plan Treningowy</title>
+    <link rel="stylesheet" href="../static/login.css">
+</head>
+<body>
+    <div class="login-message">
+    {% for mesg in get_flashed_messages() %}
+        <h1>{{ mesg }}</h1>
+    {% endfor %}
+    </div>
+    <div class="container">
+        <div class="back"><a href="home" class="btn-back">Powrót do strony głównej</a></div>
+        <div class="register-card">
+            <div class="logo">
+                <h1>AI Plan Treningowy</h1>
+            </div>
+            <h2>Zarejestruj się</h2>
+            <form id="register-form" method="post">
+                <div class="input-group">
+                    <label for="first-name">Imię</label>
+                    <input type="text" id="first_name" name="first_name" placeholder="Wpisz swoje imię" required>
+                </div>
+                <div class="input-group">
+                    <label for="last-name">Nazwisko</label>
+                    <input type="text" id="last_name" name="last_name" placeholder="Wpisz swoje nazwisko" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Wpisz email" required>
+                </div>
+                <div class="input-group">
+                    <label for="age">Wiek</label>
+                    <input type="age" id="age" name="age" placeholder="Wpisz wiek" required>
+                </div>
+                <div class="input-group">
+                    <label for="height_centimeters">Wzrost</label>
+                    <input type="height_centimeters" id="height_centimeters" name="height_centimeters" placeholder="Wpisz wzrost" required>
+                </div>
+                <div class="input-group">
+                    <label for="weight_kilograms">Waga</label>
+                    <input type="weight_kilograms" id="weight_kilograms" name="weight_kilograms" placeholder="Wpisz wagę" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Hasło</label>
+                    <input type="password" id="password" name="password" placeholder="Wpisz hasło" required>
+                </div>
+                <div class="input-group">
+                    <label for="confirm-password">Potwierdź hasło</label>
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Potwierdź hasło" required>
+                </div>
+                <button type="submit" class="btn-primary">Zarejestruj się</button>
+            </form>
+            <div class="register-options">
+                <p>Masz już konto? <a href="login">Zaloguj się</a></p>
+                <button class="btn-google">Zarejestruj przez Google</button>
+                <button class="btn-facebook">Zarejestruj przez Facebook</button>
+                <a href="home">Kontynuuj jako gość</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
