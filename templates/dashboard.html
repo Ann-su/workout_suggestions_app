@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styl Życia - Ćwiczenia Fizyczne</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+
+    <header>
+        <h1><a href="home" class="title-link">Styl Życia - Ćwiczenia Fizyczne</a></h1>
+    </header>
+
+<nav>
+    <ul>
+        <li><a href="dashboard">Formularz Ćwiczeń</a></li>
+        <li><a href="history">Historia Ćwiczeń</a></li>
+        <li><a href="settings">Ustawienia</a></li>
+        <li><a href="logout">Wyloguj się</a></li>
+    </ul>
+</nav>
+<div class="login-message">
+{% for mesg in get_flashed_messages() %}
+    <h1>{{ mesg }}</h1>
+{% endfor %}
+</div>
+<div class="content">
+    <section id="credentials">
+        <h2>Twoje dane</h2>
+        <div class="data">
+            <p>Imię: {{ user.first_name }}</p>
+            <p>Nazwisko: {{ user.last_name }}</p>
+            <p>Email: {{ user.email }}</p>
+        </div>
+    </section>
+    <section id="formularz">
+        <h2>Formularz Ćwiczeń</h2>
+        <form method="post" action="process_workout">
+            <label for="input_workout">Napisz, co dzisiaj robiłeś:</label><br>
+            <textarea id="input_workout" name="input_workout" rows="6" cols="50"></textarea><br><br>
+            <input type="submit" value="Zasugeruj trening" name="process_workout ">
+        </form>
+        {% if suggestion %}
+            <section id="suggestion">
+              <h2>Proponowany trening</h2>
+              <div class="suggestion-markdown">
+                {{ suggestion|safe }}
+              </div>
+            </section>
+        {% endif %}
+    </section>
+
+</body>
+</html>

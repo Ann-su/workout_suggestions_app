@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styl Życia - Ćwiczenia Fizyczne</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+
+    <header>
+        <h1><a href="home" class="title-link">Styl Życia - Ćwiczenia Fizyczne</a></h1>
+    </header>
+
+<nav>
+    <ul>
+        <li><a href="dashboard">Formularz Ćwiczeń</a></li>
+        <li><a href="history">Historia Ćwiczeń</a></li>
+        <li><a href="settings">Ustawienia</a></li>
+        <li><a href="logout">Wyloguj się</a></li>
+    </ul>
+</nav>
+<div class="login-message">
+    {% for mesg in get_flashed_messages() %}
+        <h1>{{ mesg }}</h1>
+    {% endfor %}    
+</div>
+<div class="content">
+        <h2>Ustawienia</h2>
+        <form method="post" action="save_config" class="setts">
+        <div class="labels">
+            <div class="row">
+                <label for="input_weight">Waga (kg):</label>
+                <input type="number" id="input_weight" name="input_weight" value="{{ user.weight_kilograms }}"><br><br>
+            </div>
+            <div class="row">
+                <label for="input_height">Wzrost (cm):</label>
+                <input type="number" id="input_height" name="input_height" value="{{ user.height_centimeters }}"><br><br>
+            </div>
+            <div class="row">
+                <label for="input_age">Wiek:</label>
+                <input type="number" id="input_age" name="input_age" value="{{ user.age }}"><br><br>
+            </div>
+                <input type="submit" value="Zapisz ustawienia" name="save_config">
+        </div>
+        </form>
+        </div>
+    </section>
+
+</body>
+</html>
